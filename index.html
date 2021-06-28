@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TV Omega</title> 
   <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
-  <script src="https://unpkg.com/video.js/dist/video.js"></script>
-  <script src="https://unpkg.com/videojs-contrib-hls/dist/videojs-contrib-hls.js"></script>
+
   <meta name="theme-color" content="#000000">
    <link rel= 'stylesheet' href="/main.css">
    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -19,7 +18,7 @@
         <div class="video-container">
             <video playsinline id="my_video_1" class="video-js " controls preload="auto"
             data-setup='{}' >
-              <source id='videoStream' src="https://bk7l2w4nlx53-hls-live.5centscdn.com/AETV/514c04b31b5f01cf00dd4965e197fdda.sdp/playlist.m3u8">
+              <source id='videoStream' src="/disney_channel-iptvcat.com.m3u8">
             </video>
             <div class="channel-state">
                 <img id="videoLogo" class="channel-logo" src="/ChannelLogos/cnn.svg">
@@ -34,8 +33,7 @@
     <div id="items1"></div>
 
     <script>
-        var player = videojs('my_video_1');
-        player.play();
+       
         </script>
 
   <script type="text/javascript">
@@ -63,5 +61,7 @@
       <div class="vert-spacer"></div>      
   </script>
  <script src="/channelHandler.js"></script>
+ <script src="https://unpkg.com/video.js/dist/video.js"></script>
+ <script src="https://unpkg.com/videojs-contrib-hls/dist/videojs-contrib-hls.js"></script>
 </body>
 </html>
