@@ -10,27 +10,58 @@
   <script src="https://unpkg.com/videojs-contrib-hls/dist/videojs-contrib-hls.js"></script>
   <meta name="theme-color" content="#000000">
    <link rel= 'stylesheet' href="/main.css">
+   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js">
+   </script>
 </head>
 <body>
     <div class="video-viewer">
         <div class="video-container">
             <video playsinline id="my_video_1" class="video-js " controls preload="auto"
             data-setup='{}' >
-              <source id='videoStream' src="https://cnn-cnninternational-1-gb.samsung.wurl.com/manifest/playlist_1280x720_3000k.m3u8">
+              <source id='videoStream' src="https://bk7l2w4nlx53-hls-live.5centscdn.com/AETV/514c04b31b5f01cf00dd4965e197fdda.sdp/playlist.m3u8">
             </video>
             <div class="channel-state">
-                <img class="channel-logo" src="/ChannelLogos/cnn.svg">
+                <img id="videoLogo" class="channel-logo" src="/ChannelLogos/cnn.svg">
                 <div class="channel-text">
                     <p>Now Playing</p>
-                    <h3>CNN</h3>
+                    <h3 id="videoTitle">CNN</h3>
                 </div>
             </div>
         </div>
     </div>
 
+    <div id="items1"></div>
+
     <script>
         var player = videojs('my_video_1');
         player.play();
         </script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $.getJSON('https://v2-api.sheety.co/1c0174d5b32dbebdf6f1e14d6ba67a4f/projectFlux/all', function (data) {
+        var template = Handlebars.compile($('#item-template2').html())
+        $('#items1').html(template(data.all))
+      })
+    })
+  </script>
+
+  <script id="item-template2" type="text/x-handlebars-template">
+<div class="vert-spacer"></div>
+    {{#each this}}
+  
+   <button onclick="setChannel('{{name}}','{{logo}}','')" class="channel-list">
+       <div class="img-container">
+        <img loading="lazy" src="/ChannelLogos/{{logo}}">
+       </div>
+      
+       <p>{{name}}</p>
+   </button>
+     
+      {{/each}}
+      <div class="vert-spacer"></div>      
+  </script>
+ <script src="/channelHandler.js"></script>
 </body>
 </html>
