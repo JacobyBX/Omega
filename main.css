@@ -1,6 +1,34 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
+
+
+
+*{margin: 0px; padding:0px;  font-family: "Open Sans", sans-serif;}
+
 .video-js {position: absolute;
  
     width: 340px;
-    height: 190px;}
+    height: 191px;border-radius: 15px 15px 0px 0px;background-color: transparent;}
+
+.vjs-tech {border-radius: 15px 15px 0px 0px;background-color: transparent;}
 
 .video-viewer {margin: auto;width: 340px;}
+
+.channel-text {width: fit-content;float:left;    margin-left: 17px;
+    margin-top: 6px;}
+
+.channel-state {position: absolute;
+    top: 218px;}
+
+.channel-logo {width: 57px;
+    margin-top: 12px;
+    margin-left: 14px;
+    float: left;}
+
+.channel-text > h3 {font-size: 15px;}
+
+.channel-text > p {font-size: 13px;}
+
+.video-container {background-color: white;
+    height: 257px;
+    margin-top: 20px;
+    border-radius: 15px;box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.17);}
