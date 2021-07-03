@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TV Omega</title> 
   <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
-
+  <script src="https://unpkg.com/video.js/dist/video.js"></script>
+  <script src="https://unpkg.com/videojs-contrib-hls/dist/videojs-contrib-hls.js"></script>
   <meta name="theme-color" content="#000000">
    <link rel= 'stylesheet' href="/main.css">
    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -18,7 +19,7 @@
         <div class="video-container">
             <video playsinline id="my_video_1" class="video-js " controls preload="auto"
             data-setup='{}' >
-              <source id='videoStream' src="/cnn_hd_us-iptvcat.com.m3u8">
+              <source id='videoStream' src="/23_abc_kero-iptvcat.com.m3u8">
             </video>
             <div class="channel-state">
                 <img id="videoLogo" class="channel-logo" src="/ChannelLogos/cnn.svg">
@@ -29,6 +30,23 @@
             </div>
         </div>
     </div>
+
+    
+    <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
+    <script src="https://unpkg.com/video.js/dist/video.js"></script>
+    <script src="https://unpkg.com/videojs-contrib-hls/dist/videojs-contrib-hls.js"></script>
+     
+  </head>
+  <body>
+    <video id="my_video_1" class="video-js vjs-fluid vjs-default-skin" controls preload="auto"
+    data-setup='{}'>
+      <source src="/23_abc_kero-iptvcat.com.m3u8" type="application/x-mpegURL">
+    </video>
+    
+  <script>
+  var player = videojs('my_video_1');
+  player.play();
+  </script>
 
     <div id="items1"></div>
 
@@ -61,7 +79,6 @@
       <div class="vert-spacer"></div>      
   </script>
  <script src="/channelHandler.js"></script>
- <script src="https://unpkg.com/video.js/dist/video.js"></script>
- <script src="https://unpkg.com/videojs-contrib-hls/dist/videojs-contrib-hls.js"></script>
+
 </body>
 </html>
