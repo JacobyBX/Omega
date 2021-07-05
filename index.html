@@ -13,13 +13,14 @@
    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js">
    </script>
+     <link rel="stylesheet" href="https://cdn.plyr.io/1.8.2/plyr.css">
 </head>
 <body>
     <div class="video-viewer">
         <div class="video-container">
             <video playsinline id="my_video_1" class="video-js " controls preload="auto"
             data-setup='{}' >
-              <source id='videoStream' src="/23_abc_kero-iptvcat.com.m3u8">
+              <source id='videoStream' src="/oxygen_west_hd-iptvcat.com.m3u8">
             </video>
             <div class="channel-state">
                 <img id="videoLogo" class="channel-logo" src="/ChannelLogos/cnn.svg">
@@ -31,22 +32,27 @@
         </div>
     </div>
 
-    
-    <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
-    <script src="https://unpkg.com/video.js/dist/video.js"></script>
-    <script src="https://unpkg.com/videojs-contrib-hls/dist/videojs-contrib-hls.js"></script>
-     
-  </head>
-  <body>
-    <video id="my_video_1" class="video-js vjs-fluid vjs-default-skin" controls preload="auto"
-    data-setup='{}'>
-      <source src="/23_abc_kero-iptvcat.com.m3u8" type="application/x-mpegURL">
-    </video>
-    
-  <script>
-  var player = videojs('my_video_1');
-  player.play();
-  </script>
+    <video preload="none" id="player" autoplay controls crossorigin></video>
+    <script src="https://cdn.plyr.io/1.8.2/plyr.js"></script>
+    <script src="https://cdn.jsdelivr.net/hls.js/latest/hls.js"></script>
+
+    <script>
+(function () {
+  var video = document.querySelector('#player');
+
+  if (Hls.isSupported()) {
+    var hls = new Hls();
+    hls.loadSource('/23_abc_kero-iptvcat.com.m3u8');
+    hls.attachMedia(video);
+    hls.on(Hls.Events.MANIFEST_PARSED,function() {
+      video.play();
+    });
+  }
+  
+  plyr.setup(video);
+})();
+      </script>
+
 
     <div id="items1"></div>
 
